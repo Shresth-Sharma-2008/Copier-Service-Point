@@ -143,6 +143,16 @@ h1{
     <input type="Submit" id="submitinput" name='1' onclick="submit()">
     <script>
         var database = firebase.database();
+
+        var url = new URLSearchParams(window.location.href.split('?')[1]);
+        nameurl = url.get('name')
+        numurl = url.get('number')
+        if(nameurl != null){
+            document.getElementById('nameinput').value = nameurl;
+        }
+        if(numurl != null){
+            document.getElementById('contactinput').value = numurl;
+        }
         var currentDate = new Date();
 
         var year = currentDate.getFullYear();
