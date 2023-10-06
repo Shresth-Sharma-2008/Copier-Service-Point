@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDCJ8aDj1aNAabamLYsFbMlUArYmzdvGWo",
+    authDomain: "shresth-sharma-v3.firebaseapp.com",
+    databaseURL: "https://shresth-sharma-v3-default-rtdb.firebaseio.com",
+    projectId: "shresth-sharma-v3",
+    storageBucket: "shresth-sharma-v3.appspot.com",
+    messagingSenderId: "52938966152",
+    appId: "1:52938966152:web:7f3b056755e84853fe0b3d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    <title>Copier Service Point</title>
+    <style>
+      .div{
+        border-style:solid;
+        border-color:blue;
+      }
+      h1{
+        font-size:6vw;
+        margin-left:5vw;
+      }
+      strong{
+        color:red;
+        font-weight:bold;
+      }
+      button{
+        margin-left:20vw;
+        width:20vw;
+        height:8vw;
+      }
+    </style>
+</head>
+<body>
+    
+  <script>
+    database = firebase.database();
+    function remove(dir){
+      var a = confirm("Is "+dir+"\'s problem solved")
+      if(a){
+        database.ref('copier/'+dir).remove();
+        window.open('#', '_top')
+      }
+    }
+    // var gameStateRef  = database.ref('copier');
+    //   gameStateRef.on("value",function(data){
+    //   data = data.val();
+    // });
+    var subdirectoryRef = database.ref('copier');
+    subdirectoryRef.once('value') 
+      .then(function(snapshot) {
+        // `snapshot` contains the data from the specified subdirectory
+        var data = snapshot.val();
+        console.log(data); // Print or process the data as needed
+        for (var key in data) {
+          if (data.hasOwnProperty(key)) {
+            var user = data[key];
+            console.log("Name: " + user.name + ", Machine: " + user.machine + ", Error: " + user.error + ", number: " + user.number + ", problem: " + user.problem);
+            var div = document.createElement('div');
+            div.className = 'div';
+            var name = document.createElement('h1');
+            name.textContent = user.name + '  --  ' + user.number;
+            var name4 = document.createElement('h1');
+            name4.textContent = user.time;
+            var name1 = document.createElement('h1');
+            name1.textContent = user.machine + '     --     ';
+            var name2 = document.createElement('strong');
+            name2.textContent = user.error;
+            name1.appendChild(name2);
+            var name3 = document.createElement('h1');
+            name3.textContent = user.problem;
+            var bt = document.createElement('button');
+            bt.innerHTML = 'Solved!';
+            bt.addEventListener('click', function(){
+              remove(user.name);
+            });
+            div.appendChild(name4);
+            div.appendChild(name);
+            div.appendChild(name1);
+            div.appendChild(name3);
+            div.appendChild(bt);
+            div.appendChild(document.createElement('br'))
+            document.body.appendChild(document.createElement('br'))
+            document.body.appendChild(div);
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error("Error fetching data:", error);
+    });
+  </script>
+</body>
+</html>
