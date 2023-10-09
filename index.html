@@ -1,206 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDCJ8aDj1aNAabamLYsFbMlUArYmzdvGWo",
-    authDomain: "shresth-sharma-v3.firebaseapp.com",
-    databaseURL: "https://shresth-sharma-v3-default-rtdb.firebaseio.com",
-    projectId: "shresth-sharma-v3",
-    storageBucket: "shresth-sharma-v3.appspot.com",
-    messagingSenderId: "52938966152",
-    appId: "1:52938966152:web:7f3b056755e84853fe0b3d"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-<style>
-h1{
-    color:red;
-    font-size:9vw;
-    margin:0vw;
-    left:3vw;
-    position:absolute;
-}
-#namelabel{
-    position:absolute;
-    font-size:6vw;
-    margin:0vw;
-    left:3vw;
-    top:18vw;
-}
-#nameinput{
-    position:absolute;
-    font-size:6vw;
-    width:50vw;
-    height:6vw;
-    /* left:20vw; */
-    right:5vw;
-    top:18vw;
-}
-#contactlabel{
-    position:absolute;
-    font-size:6vw;
-    margin:0vw;
-    left:3vw;
-    top:28vw;
-}
-#contactinput{
-    position:absolute;
-    font-size:6vw;
-    width:50vw;
-    height:6vw;
-    /* left:33vw; */
-    right:5vw;
-    top:28vw;
-}
-#machinelabel{
-    position:absolute;
-    font-size:6vw;
-    margin:0vw;
-    left:3vw;
-    top:38vw;
-}
-#machineinput{
-    position:absolute;
-    font-size:6vw;
-    width:40vw;
-    height:8vw;
-    /* left:43vw; */
-    right:5vw;
-    top:38vw;
-}
-#machine{
-    position:absolute;
-    font-size:6vw;
-    width:38vw;
-    height:6vw;
-    right:5vw;
-    top:47vw;
-}
-#errorlabel{
-    position:absolute;
-    font-size:6vw;
-    margin:0vw;
-    left:3vw;
-    top:58vw;
-}
-#errorinput{
-    position:absolute;
-    font-size:6vw;
-    width:40vw;
-    height:6vw;
-    /* left:27vw; */
-    right:5vw;
-    top:58vw;
-}
-#problemlabel{
-    position:absolute;
-    font-size:6vw;
-    margin:0vw;
-    left:3vw;
-    top:66vw;
-}
-#probleminput{
-    position:absolute;
-    resize:none;
-    font-size:4vw;
-    width:92vw;
-    height:13vw;
-    left:3vw;
-    top:74vw;
-}
-#submitinput{
-    position:absolute;
-    font-size:10vw;
-    width:50vw;
-    height:14vw;
-    left:25vw;
-    top:94vw;
-    border-color:red;
-}
-</style>
     <title>Copier Service Point</title>
     <meta name="google-site-verification" content="3_fw1lkjDiPsFSeXpPSVfML5MqHG-rRfcyB1mvzy4Ts" />
     <meta name="description" content="Copier Service Point(Rajkumar Sharma). Solve problems related to photocopy machines and printers(IR3300, 5057 and many more) In Udaipur. Fix issues related to printers In Udaipur. Find problem solutions In Udaipur, Rajasthan, Udaipur. Website by Shresth Sharma.">
-
+    <style>
+        #loading{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+        .l{
+            position:absolute;
+            width:3vw;
+            height:3vw;
+            border-radius:50%;
+            background-color:red;
+            transform: translate(0, -30px);
+        }
+        #l1{
+            animation: load1 1.5s ease-in-out infinite;
+        }
+        #l2{
+            animation: load2 1.5s ease-in-out infinite;
+        }
+        #l3{
+            animation: load3 1.5s ease-in-out infinite;
+        }
+        #l4{
+            animation: load4 1.5s ease-in-out infinite;
+        }
+        #l5{
+            animation: load5 1.5s ease-in-out infinite;
+        }
+        @keyframes load1{
+            0% {
+                transform: rotate(0deg) translateX(0) translateY(-80px);
+            }
+            66.66% {
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:orange;
+            }
+            100%{
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:red;
+            }
+        }
+        @keyframes load2{
+            0% {
+                transform: rotate(0deg) translateX(0) translateY(-80px);
+            }
+            6.66% {
+                transform: rotate(0deg) translateX(0) translateY(-100px);
+            }
+            73.32% {
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:orange;
+            }
+            100%{
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:red;
+            }
+        }
+        @keyframes load3{
+            0% {
+                transform: rotate(0deg) translateX(0) translateY(-80px);
+            }
+            13.32% {
+                transform: rotate(0deg) translateX(0) translateY(-100px);
+            }
+            79.98% {
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:orange;
+            }
+            100%{
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:red;
+            }
+        }
+        @keyframes load4{
+            0% {
+                transform: rotate(0deg) translateX(0) translateY(-80px);
+            }
+            19.98% {
+                transform: rotate(0deg) translateX(0) translateY(-100px);
+            }
+            86.64% {
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:orange;
+            }
+            100%{
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:red;
+            }
+        }
+        @keyframes load5{
+            0% {
+                transform: rotate(0deg) translateX(0) translateY(-80px);
+            }
+            26.64% {
+                transform: rotate(0deg) translateX(0) translateY(-100px);
+            }
+            93.3% {
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:orange;
+            }
+            100%{
+                transform: rotate(360deg) translateX(0) translateY(-80px);
+                background-color:red;
+            }
+        }
+        #content{
+            display:none;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDCJ8aDj1aNAabamLYsFbMlUArYmzdvGWo",
+        authDomain: "shresth-sharma-v3.firebaseapp.com",
+        databaseURL: "https://shresth-sharma-v3-default-rtdb.firebaseio.com",
+        projectId: "shresth-sharma-v3",
+        storageBucket: "shresth-sharma-v3.appspot.com",
+        messagingSenderId: "52938966152",
+        appId: "1:52938966152:web:7f3b056755e84853fe0b3d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <style>
+        body{
+            margin-left:0px;
+            margin-top:0px;
+            max-width:98vw;
+            max-height:100vw;
+            overflow-X: hidden;
+        }
+    h1{
+        color:red;
+        font-size:9vw;
+        margin:0vw;
+        left:3vw;
+        position:absolute;
+    }
+    @keyframes namelabel1{
+        0%{left:-20vw;}
+        100%{left:3vw;}
+    }
+    @keyframes inputani{
+        0%{right:-50vw;}
+        100%{right:5vw;}
+    }
+    @keyframes inputani2{
+        0%{top:130vw;}
+        100%{top:74vw;}
+    }
+    @keyframes inputani3{
+        0%{top:130vw;}
+        100%{top:94vw;}
+    }
+    #namelabel{
+        position:absolute;
+        font-size:6vw;
+        margin:0vw;
+        left:3vw;
+        top:18vw;
+        animation:namelabel1 1s ease-out 1;
+    }
+    #nameinput{
+        position:absolute;
+        font-size:6vw;
+        width:50vw;
+        height:6vw;
+        /* left:20vw; */
+        right:5vw;
+        top:18vw;
+        animation:inputani 1s ease-out 1;
+    }
+    #contactlabel{
+        position:absolute;
+        font-size:6vw;
+        margin:0vw;
+        left:3vw;
+        top:28vw;
+        animation:namelabel1 1s ease-out 1;
+    }
+    #contactinput{
+        position:absolute;
+        font-size:6vw;
+        width:50vw;
+        height:6vw;
+        /* left:33vw; */
+        right:5vw;
+        top:28vw;
+        animation:inputani 1s ease-out 1;
+    }
+    #machinelabel{
+        position:absolute;
+        font-size:6vw;
+        margin:0vw;
+        left:3vw;
+        top:38vw;
+        animation:namelabel1 1s ease-out 1;
+    }
+    #machineinput{
+        position:absolute;
+        font-size:6vw;
+        width:40vw;
+        height:8vw;
+        /* left:43vw; */
+        right:5vw;
+        top:38vw;
+        animation:inputani 1s ease-out 1;
+    }
+    #machine{
+        position:absolute;
+        font-size:6vw;
+        width:38vw;
+        height:6vw;
+        right:5vw;
+        top:47vw;
+        animation:inputani 1s ease-out 1;
+    }
+    #errorlabel{
+        position:absolute;
+        font-size:6vw;
+        margin:0vw;
+        left:3vw;
+        top:58vw;
+        animation:namelabel1 1s ease-out 1;
+    }
+    #errorinput{
+        position:absolute;
+        font-size:6vw;
+        width:40vw;
+        height:6vw;
+        /* left:27vw; */
+        right:5vw;
+        top:58vw;
+        animation:inputani 1s ease-out 1;
+    }
+    #problemlabel{
+        position:absolute;
+        font-size:6vw;
+        margin:0vw;
+        left:3vw;
+        top:66vw;
+        animation:namelabel1 1s ease-out 1;
+    }
+    #probleminput{
+        position:absolute;
+        resize:none;
+        font-size:4vw;
+        width:92vw;
+        height:13vw;
+        left:3vw;
+        top:74vw;
+        animation:inputani2 1s ease-out 1;
+    }
+    #submitinput{
+        position:absolute;
+        font-size:10vw;
+        width:50vw;
+        height:14vw;
+        left:25vw;
+        top:94vw;
+        border-color:red;
+        animation:inputani3 1s ease-out 1;
+    }
+    </style>
 </head>
 <body>
-    <h1>Copier Service Point</h1><br>
-    <label id="namelabel">Name: </label><input type="text" id="nameinput" placeholder="Name" name="1" required>
-    <label id="contactlabel">Contact No: </label><input type="tel" id="contactinput" name='1' placeholder="Number" pattern="[0-9]{10}" required>
-    <label id="machinelabel">Machine Name: </label><select id="machineinput" name="1">
-        <option value="other">Other</option>
-        <option value="IR_3300">IR 3300</option>
-        <option value="IR_2870">IR 2870</option>
-        <option value="IR_5057">IR 5057</option>
-        <option value="IR_6000">IR 6000</option>
-    </select>
-    <input type="text" id="machine" name='1' placeholder="Machine">
-    <label id="errorlabel">Error Code (If any): </label><input type="text" id="errorinput" name='1' placeholder="Error">
-    <label id="problemlabel">Problem : </label><textarea type="text" rows="2" id="probleminput" name="1" placeholder="Problem"></textarea>
-    <!-- <label id="problemlabel">Problem : </label><input type="text" id="probleminput" name="1" placeholder="Problem"> -->
-    <input type="Submit" id="submitinput" name='1' onclick="submit()">
-    <script>
-        var database = firebase.database();
-
-        var url = new URLSearchParams(window.location.href.split('?')[1]);
-        nameurl = url.get('name')
-        numurl = url.get('number')
-        if(nameurl != null){
-            document.getElementById('nameinput').value = nameurl;
-        }
-        if(numurl != null){
-            document.getElementById('contactinput').value = numurl;
-        }
-        var currentDate = new Date();
-
-        var year = currentDate.getFullYear();
-        var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
-        var day = currentDate.getDate().toString().padStart(2, '0');
-        var hours = currentDate.getHours().toString().padStart(2, '0');
-        var minutes = currentDate.getMinutes().toString().padStart(2, '0');
-        var seconds = currentDate.getSeconds().toString().padStart(2, '0');
-
-        var dateTimeString = `${hours}:${minutes} ${day}-${month}-${year}`;
-        console.log(dateTimeString);
-
-        machine = document.getElementById('machineinput');
-        machine.addEventListener("change", function(){
-            if(machine.value == 'other'){
-                document.getElementById('machine').style.display = 'block';
+    <div id="loading">
+        <div id="l1" class="l"></div>
+        <div id="l2" class="l"></div>
+        <div id="l3" class="l"></div>
+        <div id="l4" class="l"></div>
+        <div id="l5" class="l"></div>
+    </div>
+    <div id="content">
+            <h1>Copier Service Point</h1><br>
+            <label id="namelabel">Name: </label><input type="text" id="nameinput" placeholder="Name" name="1" required>
+            <label id="contactlabel">Contact No: </label><input type="tel" id="contactinput" name='1' placeholder="Number" pattern="[0-9]{10}" required>
+            <label id="machinelabel">Machine Name: </label><select id="machineinput" name="1">
+            <option value="other">Other</option>
+            <option value="IR_3300">IR 3300</option>
+            <option value="IR_2870">IR 2870</option>
+            <option value="IR_5057">IR 5057</option>
+            <option value="IR_6000">IR 6000</option>
+        </select>
+        <input type="text" id="machine" name='1' placeholder="Machine">
+        <label id="errorlabel">Error Code (If any): </label><input type="text" id="errorinput" name='1' placeholder="Error">
+        <label id="problemlabel">Problem : </label><textarea type="text" rows="2" id="probleminput" name="1" placeholder="Problem"></textarea>
+        <!-- <label id="problemlabel">Problem : </label><input type="text" id="probleminput" name="1" placeholder="Problem"> -->
+        <input type="Submit" id="submitinput" name='1' onclick="submit()">
+        <script>
+            var database = firebase.database();
+            
+            var url = new URLSearchParams(window.location.href.split('?')[1]);
+            nameurl = url.get('name')
+            numurl = url.get('number')
+            if(nameurl != null){
+                document.getElementById('nameinput').value = nameurl;
             }
-            else{
-                document.getElementById('machine').style.display = 'none';
-                console.log(machine.value)
+            if(numurl != null){
+                document.getElementById('contactinput').value = numurl;
             }
-        });
-        function submit(){
-            name = document.getElementById('nameinput').value 
-            num = document.getElementById('contactinput').value
-            machine = document.getElementById('machineinput').value
-            error = document.getElementById('errorinput').value
-            prob = document.getElementById('probleminput').value
-            if(machine == 'other'){
-                machine = document.getElementById('machine').value;
-            }
-            if(name == '' || num == '' || machine=='' || prob==''){
-                alert('All the feilds are required.')
-                return;
-            }
-            database.ref('/copier/'+name+'/').update({
-                name:name,
-                number:num,
-                machine:machine,
-                error:error,
-                problem:prob,
-                time:dateTimeString
+            var currentDate = new Date();
+
+            var year = currentDate.getFullYear();
+            var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
+            var day = currentDate.getDate().toString().padStart(2, '0');
+            var hours = currentDate.getHours().toString().padStart(2, '0');
+            var minutes = currentDate.getMinutes().toString().padStart(2, '0');
+            var seconds = currentDate.getSeconds().toString().padStart(2, '0');
+
+            var dateTimeString = `${hours}:${minutes} ${day}-${month}-${year}`;
+            console.log(dateTimeString);
+
+            machine = document.getElementById('machineinput');
+            machine.addEventListener("change", function(){
+                if(machine.value == 'other'){
+                    document.getElementById('machine').style.display = 'block';
+                }
+                else{
+                    document.getElementById('machine').style.display = 'none';
+                    console.log(machine.value)
+                }
             });
-            alert('Submitted')
+            function submit(){
+                name = document.getElementById('nameinput').value 
+                num = document.getElementById('contactinput').value
+                machine = document.getElementById('machineinput').value
+                error = document.getElementById('errorinput').value
+                prob = document.getElementById('probleminput').value
+                if(machine == 'other'){
+                    machine = document.getElementById('machine').value;
+                }
+                if(name == '' || num == '' || machine=='' || prob==''){
+                    alert('All the feilds are required.')
+                    return;
+                }
+                database.ref('/copier/'+name+'/').update({
+                    name:name,
+                    number:num,
+                    machine:machine,
+                    error:error,
+                    problem:prob,
+                    time:dateTimeString
+                });
+                alert('Submitted')
+            }
+        </script>
+    </div>
+    <script>
+        function loadfinish(){
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
         }
+        window.addEventListener('load', function(){
+            setTimeout(loadfinish, 2000);
+        })
     </script>
 </body>
 </html>
