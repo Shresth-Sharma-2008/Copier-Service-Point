@@ -32,6 +32,8 @@
         font-weight:bold;
       }
       button{
+        position:relative;
+        top:-2vw;
         margin-left:20vw;
         width:20vw;
         height:8vw;
@@ -42,6 +44,10 @@
     
   <script>
     database = firebase.database();
+    function openlocation(latitude, longitude){
+      url = "https://www.google.com/maps/place/"+latitude+"+"+longitude;
+      window.open(url, '_blank')
+    }
     function remove(dir){
       var a = confirm("Is "+dir+"\'s problem solved")
       if(a){
@@ -81,10 +87,16 @@
             bt.addEventListener('click', function(){
               remove(user.name);
             });
+            var loc = document.createElement('button');
+            loc.innerHTML = 'Google Maps';
+            loc.addEventListener('click', function(){
+              openlocation(user.latitude, user.longitude);
+            });
             div.appendChild(name4);
             div.appendChild(name);
             div.appendChild(name1);
             div.appendChild(name3);
+            div.appendChild(loc);
             div.appendChild(bt);
             div.appendChild(document.createElement('br'))
             document.body.appendChild(document.createElement('br'))
