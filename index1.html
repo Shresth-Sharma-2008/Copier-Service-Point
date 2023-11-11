@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="shortcut icon" href="logo.jpg">
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
 <script>
@@ -21,15 +22,20 @@
     <style>
       .div{
         border-style:solid;
+        border-width:0.8vw;
+        border-radius:10%;
         border-color:blue;
       }
       h1{
-        font-size:6vw;
+        font-size:4vw;
         margin-left:5vw;
       }
       strong{
         color:red;
         font-weight:bold;
+      }
+      .blue{
+        color:blue;
       }
       button{
         position:relative;
@@ -37,6 +43,16 @@
         margin-left:20vw;
         width:20vw;
         height:8vw;
+        font-size:2vw;
+        font-weight:500;
+        border-radius:15%;
+        border-width:0.5vw;
+        border-color:red;
+        color:red;
+      }
+      .button1{
+        border-color:green;
+        color:green;
       }
     </style>
 </head>
@@ -75,6 +91,7 @@
             name.textContent = user.name + '  --  ' + user.number;
             var name4 = document.createElement('h1');
             name4.textContent = user.time;
+            name4.classList.add('blue')
             var name1 = document.createElement('h1');
             name1.textContent = user.machine + '     --     ';
             var name2 = document.createElement('strong');
@@ -84,14 +101,19 @@
             name3.textContent = user.problem;
             var bt = document.createElement('button');
             bt.innerHTML = 'Solved!';
-            bt.addEventListener('click', function(){
-              remove(user.name);
-            });
+            (function(name){
+              bt.addEventListener('click', function(){
+                remove(name);
+              });
+            })(user.name)
             var loc = document.createElement('button');
             loc.innerHTML = 'Google Maps';
-            loc.addEventListener('click', function(){
-              openlocation(user.latitude, user.longitude);
-            });
+            loc.classList.add('button1');
+            (function(latitude, longitude){
+              loc.addEventListener('click', function(){
+                openlocation(latitude, longitude);
+              });
+            })(user.latitude, user.longitude)
             div.appendChild(name4);
             div.appendChild(name);
             div.appendChild(name1);
