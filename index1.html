@@ -40,8 +40,9 @@
       button{
         position:relative;
         top:-2vw;
-        margin-left:20vw;
-        width:20vw;
+        margin-left:10vw;
+        margin-top:3vw;
+        width:15vw;
         height:8vw;
         font-size:2vw;
         font-weight:500;
@@ -53,6 +54,10 @@
       .button1{
         border-color:green;
         color:green;
+      }
+      .button2{
+        border-color:blue;
+        color:blue;
       }
     </style>
 </head>
@@ -68,7 +73,7 @@
       var a = confirm("Is "+dir+"\'s problem solved")
       if(a){
         database.ref('copier/'+dir).remove();
-        window.open('#', '_top')
+        window.open('index1.html', '_top')
       }
     }
     // var gameStateRef  = database.ref('copier');
@@ -81,6 +86,19 @@
         // `snapshot` contains the data from the specified subdirectory
         var data = snapshot.val();
         console.log(data); // Print or process the data as needed
+        const dataArray = Object.entries(data);
+
+        // Sort the array based on the 'time' property
+        dataArray.sort((a, b) => {
+          const timeA = new Date(a[1].time.replace(/(\d+:\d+) (\d+-\d+-\d+)/, '$2 $1'));
+          const timeB = new Date(b[1].time.replace(/(\d+:\d+) (\d+-\d+-\d+)/, '$2 $1'));
+          return timeA - timeB;
+        });
+
+        // Convert the sorted array back to an object
+        data = Object.fromEntries(dataArray);
+
+
         for (var key in data) {
           if (data.hasOwnProperty(key)) {
             var user = data[key];
@@ -114,11 +132,20 @@
                 openlocation(latitude, longitude);
               });
             })(user.latitude, user.longitude)
+            var numberbt = document.createElement('button');
+            numberbt.innerHTML = 'Call';
+            numberbt.classList.add('button2');
+            (function(number){
+              numberbt.addEventListener('click', function(){
+                  window.location.href = "tel:+91" + number;
+              })
+            })(user.number)
             div.appendChild(name4);
             div.appendChild(name);
             div.appendChild(name1);
             div.appendChild(name3);
             div.appendChild(loc);
+            div.appendChild(numberbt);
             div.appendChild(bt);
             div.appendChild(document.createElement('br'))
             document.body.appendChild(document.createElement('br'))
